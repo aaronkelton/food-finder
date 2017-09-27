@@ -8,6 +8,11 @@ class Restaurant
 
   def self.file_exists?
     # class should know if the restaurant class exists
+    if @@filepath && File.exists?(@@filepath)
+      true
+    else
+      false
+    end
   end
 
   def self.create_file
