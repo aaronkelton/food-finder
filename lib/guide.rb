@@ -19,14 +19,13 @@ class Guide
   def launch!
     introduction
     # action loop
-    loop do
+    result = nil
+    until result == :quit
       #   choices: list, find, add, quit
       print "> "
       action = gets.chomp
       #   do that action
       result = do_action(action)
-      # repeat until user quits
-      break if result == :quit
     end
     conclusion
   end
