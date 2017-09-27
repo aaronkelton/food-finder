@@ -36,6 +36,17 @@ class Restaurant
     # return instances of restaurant
   end
 
+  def self.build_using_questions
+    args = {}
+    print "Restaurant name: "
+    args[:name] = gets.chomp.strip
+    print "Cuisine type: "
+    args[:cuisine] = gets.chomp.strip
+    print "Average price: "
+    args[:price] = gets.chomp.strip
+    return self.new(args)
+  end
+
   def initialize(args={})
     @name    = args[:name]    || ""
     @cuisine = args[:cuisine] || ""
