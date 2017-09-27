@@ -1,4 +1,4 @@
-require './restaurant'
+require 'restaurant'
 class Guide
 
   class Config
