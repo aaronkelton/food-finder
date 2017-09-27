@@ -1,6 +1,11 @@
 require './restaurant'
 class Guide
 
+  class Config
+    @@actions = ['list', 'find', 'add', 'quit']
+    self.actions; @@actions; end
+  end
+
   def initialize(path=nil)
     # locate the restaurant text file at path
     Restaurant.filepath = path
