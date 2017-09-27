@@ -1,5 +1,7 @@
 class Restaurant
 
+  attr_accessor :name, :cuisine, :price
+
   @@filepath = nil
 
   def self.filepath=(path=nil)
