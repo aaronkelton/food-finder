@@ -21,13 +21,15 @@ class Guide
     # action loop
     result = nil
     until result == :quit
-      #   choices: list, find, add, quit
-      print "> "
-      action = gets.chomp
-      #   do that action
+      action = get_action
       result = do_action(action)
     end
     conclusion
+  end
+
+  def get_action
+    print "> "
+    action = gets.chomp.downcase.strip
   end
 
   def do_action(action)
