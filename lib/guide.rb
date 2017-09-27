@@ -67,7 +67,7 @@ class Guide
   end
 
   def add
-    puts "\nAdd a restaurant.\n\n".upcase
+    output_action_header("Add a restaurant")
 
     restaurant = Restaurant.build_using_questions
 
