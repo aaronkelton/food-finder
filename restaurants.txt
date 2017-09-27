@@ -1,3 +1,4 @@
 Hot Tamale	Mexican	25
 Cafe Masala	Indian	30
 Taco Bueno	Tex-Mex	6
+pita pocket	Fast food	10

@@ -1,4 +1,5 @@
 require 'restaurant'
+require "support/string_extend"
 class Guide
 
   class Config
@@ -98,8 +99,8 @@ class Guide
       print " " + "Price".rjust(6) + "\n"
       puts "-" * 60
       restaurants.each do |r|
-        line = " " << r.name.ljust(30)
-        line << " " + r.cuisine.ljust(20)
+        line = " " << r.name.titleize.ljust(30)
+        line << " " + r.cuisine.titleize.ljust(20)
         line << " " + r.formatted_price.rjust(6)
         puts line
       end
