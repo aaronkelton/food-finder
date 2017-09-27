@@ -10,5 +10,6 @@ APP_ROOT = File.dirname(__FILE__)
 # require File.join(APP_ROOT, 'lib', 'guide.rb')
 # require File.join(APP_ROOT, 'lib', 'guide')
 
-$:.unshift( File.join(APP_ROOT, 'lib'))
+$LOAD_PATH.unshift( File.join(APP_ROOT, 'lib') )
+# $:.unshift(File.join(APP_ROOT, 'lib'))
 require 'guide'
