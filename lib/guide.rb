@@ -22,17 +22,29 @@ class Guide
     loop do
       #   choices: list, find, add, quit
       print "> "
-      user_response = gets.chomp
+      action = gets.chomp
       #   do that action
-      result = do_action(user_response)
+      result = do_action(action)
       # repeat until user quits
       break if result == :quit
     end
     conclusion
   end
 
-  def do_action(user_response)
-    #code
+  def do_action(action)
+    case action
+    when 'list'
+      puts "Listing..."
+    when 'find'
+      puts "Finding..."
+    when 'add'
+      puts "Adding..."
+    when 'quit'
+      puts "Quiting..."
+      return :quit
+    else
+      puts "\nI don't understand that command.\n"
+    end
   end
 
   def introduction
