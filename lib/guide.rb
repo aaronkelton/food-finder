@@ -6,4 +6,13 @@ class Guide
     # exit if create fails
   end
 
+  def launch!
+    # introduction
+    # action loop
+      # choices: list, find, add, quit
+      # do that action
+    # repeat until user quits
+    # conclusion
+  end
+
 end
