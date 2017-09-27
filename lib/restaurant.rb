@@ -1,4 +1,6 @@
+require "support/number_helper"
 class Restaurant
+  include NumberHelper
 
   attr_accessor :name, :cuisine, :price
 
