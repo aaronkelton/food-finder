@@ -30,6 +30,7 @@ class Guide
   def get_action
     print "> "
     action = gets.chomp.downcase.strip
+    return action
   end
 
   def do_action(action)
