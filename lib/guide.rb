@@ -3,7 +3,7 @@ class Guide
 
   class Config
     @@actions = ['list', 'find', 'add', 'quit']
-    self.actions; @@actions; end
+    def self.actions; @@actions; end
   end
 
   def initialize(path=nil)
@@ -33,8 +33,11 @@ class Guide
   end
 
   def get_action
-    print "> "
-    action = gets.chomp.downcase.strip
+    action = nil
+    until Guide::Config.actions.include?(action)
+      print "> "
+      action = gets.chomp.downcase.strip
+    end
     return action
   end
 
