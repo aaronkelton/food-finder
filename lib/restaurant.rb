@@ -79,4 +79,7 @@ class Restaurant
     return true
   end
 
+  def formatted_price
+    number_to_currency(@price)
+  end
 end
