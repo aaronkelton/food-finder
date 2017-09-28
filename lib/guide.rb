@@ -27,8 +27,8 @@ class Guide
     # action loop
     result = nil
     until result == :quit
-      action = get_action
-      result = do_action(action)
+      action, args = get_action
+      result = do_action(action, args)
     end
     conclusion
   end
@@ -39,17 +39,19 @@ class Guide
     until Guide::Config.actions.include?(action)
       puts "Actions: " + Guide::Config.actions.join(', ') if action
       print "> "
-      action = gets.chomp.downcase.strip
+      user_response = gets.chomp
+      args = user_response.downcase.strip.split(' ')
+      action = args.shift
     end
-    return action
+    return action, args # returns an array
   end
 
-  def do_action(action)
+  def do_action(action, args=[])
     case action
     when 'list'
       list
     when 'find'
-      puts "Finding..."
+      find
     when 'add'
       add
     when 'quit'
@@ -64,6 +66,11 @@ class Guide
     output_action_header("Listing restaurants")
     restaurants = Restaurant.saved_restaurants
     output_restaurant_table(restaurants)
+  end
+
+  def find(keyword="")
+    output_action_header("Find a restaurant")
+
   end
 
   def add
