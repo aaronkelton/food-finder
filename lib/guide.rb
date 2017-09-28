@@ -64,7 +64,8 @@ class Guide
   end
 
   def list(args=[])
-    sort_order = args.shift || "name"
+    sort_order = args.shift
+    sort_order ||= "name"
 
     output_action_header("Listing restaurants")
     restaurants = Restaurant.saved_restaurants
