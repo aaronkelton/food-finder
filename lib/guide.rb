@@ -51,7 +51,8 @@ class Guide
     when 'list'
       list
     when 'find'
-      find
+      keyword = args.shift
+      find(keyword)
     when 'add'
       add
     when 'quit'
@@ -70,7 +71,12 @@ class Guide
 
   def find(keyword="")
     output_action_header("Find a restaurant")
-
+    if keyword
+      # search
+    else
+      puts "Enter a keyword after `find` to search restaurants."
+      puts "Examples: 'find tamale', 'find Mexican', 'find mex'\n\n"
+    end
   end
 
   def add
