@@ -69,6 +69,9 @@ class Guide
 
     output_action_header("Listing restaurants")
     restaurants = Restaurant.saved_restaurants
+    restaurants.sort! do |r1, r2|
+      r1.name.downcase <=> r2.name.downcase
+    end
     output_restaurant_table(restaurants)
   end
 
