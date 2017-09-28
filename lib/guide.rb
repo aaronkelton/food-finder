@@ -72,7 +72,13 @@ class Guide
   def find(keyword="")
     output_action_header("Find a restaurant")
     if keyword
-      # search
+      restaurants = Restaurant.saved_restaurants
+      found = restaurants.select do |r|
+        r.name.downcase.include?(keyword.downcase) ||
+        r.cuisine.downcase.include?(keyword.downcase) ||
+        r.price.to_i <= keyword.to_i
+      end
+      output_restaurant_table(found)
     else
       puts "Enter a keyword after `find` to search restaurants."
       puts "Examples: 'find tamale', 'find Mexican', 'find mex'\n\n"
