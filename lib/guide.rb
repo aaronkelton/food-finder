@@ -70,9 +70,17 @@ class Guide
     output_action_header("Listing restaurants")
     restaurants = Restaurant.saved_restaurants
     restaurants.sort! do |r1, r2|
-      r1.name.downcase <=> r2.name.downcase
+      case sort_order
+      when 'name'
+        r1.name.downcase <=> r2.name.downcase
+      when 'cuisine'
+        r1.cuisine.downcase <=> r2.cuisine.downcase
+      when 'price'
+        r1.price.to_i <=> r2.price.to_i
+      end
     end
     output_restaurant_table(restaurants)
+    puts "Sort using: 'list cuisine'\n\n"
   end
 
   def find(keyword="")
