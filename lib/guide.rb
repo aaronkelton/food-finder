@@ -65,7 +65,7 @@ class Guide
 
   def list(args=[])
     sort_order = args.shift
-    sort_order ||= "name"
+    sort_order = "name" unless ['name', 'cuisine', 'price'].include?(sort_order)
 
     output_action_header("Listing restaurants")
     restaurants = Restaurant.saved_restaurants
