@@ -49,7 +49,7 @@ class Guide
   def do_action(action, args=[])
     case action
     when 'list'
-      list
+      list(args)
     when 'find'
       keyword = args.shift
       find(keyword)
@@ -63,7 +63,9 @@ class Guide
     end
   end
 
-  def list
+  def list(args=[])
+    sort_order = args.shift || "name"
+
     output_action_header("Listing restaurants")
     restaurants = Restaurant.saved_restaurants
     output_restaurant_table(restaurants)
